@@ -59,6 +59,7 @@ $ deactivate
  ## Running Server
  
 1. Example of it activated
+
 ![alt text](https://github.com/Sllarsen/Principals-Server/blob/master/resources/readmepics/activate.png)
 
 2. Navigate to where app.py is. This is the server and run
