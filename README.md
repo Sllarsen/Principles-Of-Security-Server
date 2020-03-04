@@ -27,27 +27,4 @@ $ pip3 freeze > requirements.txt
 $ deactivate
 ```
 
-### Docker Commands
-Common docker commands to use on a daily basis
 
-1. Building an image from local Dockerfile
-```
-$ docker build -t fido:latest .
-```
-
-2. Running docker image, detaching process and exposing port 80
-```
-$ docker run -d -p 80:80 fido
-```
-
-3. Seeing docker status and running images 
-```
-$ docker stats
-```
-
-### Pytest Automated Testing Suite
-```
-$ pytest -p no:warnings --cov
-```
-=======
-## FIDO (Fidelity Investments Document Oracle)
