@@ -34,7 +34,6 @@ $ deactivate
 1. Creating virtual enviroment in local dir named "env"
 ```
 $ python -m venv env
-
 ```
 
 2. Starting virtual enviroment "env" 
@@ -49,7 +48,7 @@ $ pip install -r requirements.txt
 
 3.5 Piping current pip installs to requirements.txt
 ```
-$ pip3 freeze > requirements.txt 
+$ pip freeze > requirements.txt 
 ```
 
 4. Exiting virtual enviroment
