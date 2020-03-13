@@ -1,15 +1,14 @@
 from flask import Flask
-app = Flask(__name__)
+from controllers.routes import server
+
 baseurl = '/scanner'
 
 
+app = Flask(__name__)
 
-@app.route('/')
-@app.route(baseurl + '/')
-#Simple Hello world route 
-def home():
-    return "Hello World"
+app.register_blueprint(server)
 
+qwe = "hrl"
 
 
 if __name__ == "__main__":
