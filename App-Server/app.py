@@ -10,11 +10,17 @@ app = Flask(__name__)
 baseurl = '/scanner'
 MY_PATH = '/home/devin/github/Principles-Of-Security-Server/cache'
 
-
+"""
+    Gets the contents of a cached file
+"""
 def file_get_contents(filename):
     with open(filename) as f:
         return f.read()
 
+"""
+    Consumes the raw input of cryptoguard and returns the rule violations as a
+    comma seperated list
+"""
 def parse_data(str):
     if "***Violated Rule" not in str:
         #no rules were violated
@@ -46,7 +52,7 @@ def parse_data(str):
 @app.route('/')
 @app.route(baseurl + '/', methods=['GET'])
 def home():
-    j = json.loads(request.data)
+    j = json.loads(request.data)["nameValuePairs"]
     apk_names = []
     #create a list of the properly formatted app names
     for i in j:
