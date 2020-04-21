@@ -8,7 +8,7 @@ import subprocess
 
 app = Flask(__name__)
 baseurl = '/scanner'
-MY_PATH = '/home/devin/github/Principles-Of-Security-Server/cache'
+MY_PATH = './../cache'
 
 """
     Gets the contents of a cached file
