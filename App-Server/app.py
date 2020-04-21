@@ -35,6 +35,7 @@ def home():
                 #this analysis was cached
                 run.remove(i)
                 done.append(i)
+                print(i, " (cache)")
     analysis_results = {}
     #get the analysis that has already been run first
     for i in done:
@@ -44,7 +45,7 @@ def home():
     for i in run:
         apk_name = i + ".apk"
         if apk_name not in avail_apks:
-            print("apk is not available", i)
+            print(i, " (no apk)")
             analysis_results[i] = "apk not supported"
             continue
         args = "java -jar ../cryptoguard-ccs-submission/main/build/libs/main.jar \"apk\" \"../apks/" + i + ".apk\" \"\" 1"
@@ -59,7 +60,7 @@ def home():
         f = open("../cache/" + i + ".txt", "w")
         f.write(str(stdout))
         f.close()
-    print(analysis_results)
+        print(i, " (analysis run)")
     analysis_results = json.dumps(analysis_results)
     return analysis_results
 
