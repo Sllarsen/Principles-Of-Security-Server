@@ -15,6 +15,33 @@ def file_get_contents(filename):
     with open(filename) as f:
         return f.read()
 
+def parse_data(str):
+    if "***Violated Rule" not in str:
+        #no rules were violated
+        return ""
+    arr = str.split("***Violated Rule ")
+    r = []
+    #get the rules as numbers
+    for i in range(1, len(arr)):
+        r.append(int(arr[i].split(":")[0].strip()))
+    #remove the duplicates
+    rules = []
+    for i in r:
+        if i not in rules:
+            rules.append(i)
+    ret_val = ""
+    count = 0
+    for i in rules:
+        if i == 2:
+            ret_val += "Found Broken Hash Function"
+        elif i == 13:
+            ret_val +="Untrusted PRNG"
+
+        if count + 1 < len(rules):
+            ret_val += ", "
+        count += 1
+    return ret_val
+
 
 @app.route('/')
 @app.route(baseurl + '/', methods=['GET'])
@@ -39,7 +66,7 @@ def home():
     analysis_results = {}
     #get the analysis that has already been run first
     for i in done:
-        analysis_results[i] = str(file_get_contents(MY_PATH + "/" + done[0] + ".txt"))
+        analysis_results[i] = parse_data(str(file_get_contents(MY_PATH + "/" + i + ".txt")))
     #then run the analysis on the remaining cache_apps
     avail_apks = listdir(MY_PATH + "/../apks")
     for i in run:
@@ -52,7 +79,7 @@ def home():
         proc = subprocess.Popen(args, stdout = subprocess.PIPE, shell = True)
         stdout, stderr = proc.communicate();
         status = proc.wait()
-        analysis_results[i] = str(stdout)
+        analysis_results[i] = parse_data(str(stdout))
         if status != 0:
             print("there was an error running the analysis on: ", i)
             continue
