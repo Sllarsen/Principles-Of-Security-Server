@@ -40,8 +40,18 @@ def parse_data(str):
     for i in rules:
         if i == 2:
             ret_val += "Found Broken Hash Function"
+        elif i == 4:
+            ret_val += "Uses Untrusted TrustManager"
+        elif i == 5:
+            ret_val += "Used default key size in method"
+        elif i == 6:
+            ret_val += "Uses untrusted HostNameVerifier"
+        elif i == 12:
+            ret_val += "Does not manually verify the hostname"
         elif i == 13:
             ret_val +="Untrusted PRNG"
+        else:
+            ret_val += "Vulnerability (not decoded, " + str(i) + ")"
 
         if count + 1 < len(rules):
             ret_val += ", "
