@@ -65,8 +65,7 @@ def hello():
     return "hello world"
 
 
-@app.route('/a')
-@app.route(baseurl + '/a', methods=['GET'])
+@app.route(baseurl + '/a', methods=['POST'])
 def home():
     j = json.loads(request.data)["nameValuePairs"]
     apk_names = []
