@@ -1,1 +1,1 @@
-web: gunicor --chidir ./App-Server app:app
+web: gunicorn --chidir ./App-Server app:app
