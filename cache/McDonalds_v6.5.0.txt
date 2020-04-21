@@ -1,0 +1,18 @@
+Analyzing APK: ../apks/McDonalds_v6.5.0.apk
+*** Base package: com.mcdonalds.app
+=============================================
+***Violated Rule 13: Untrused PRNG (java.util.Random) Found in <com.bumptech.glide.load.resource.gif.GifFrameLoader: com.bumptech.glide.load.Key n()>
+=============================================
+=============================================
+***Violated Rule 13: Untrused PRNG (java.util.Random) Found in <com.facebook.FacebookException: void <init>(java.lang.String)>
+=============================================
+=============================================
+***Violated Rule 13: Untrused PRNG (java.util.Random) Found in <com.facebook.internal.Utility: java.lang.String generateRandomString(int)>
+=============================================
+=============================================
+***Violated Rule 13: Untrused PRNG (java.util.Random) Found in <androidx.transition.Explode: void a(android.view.View,android.graphics.Rect,int[])>
+=============================================
+=======================================
+***Violated Rule 2: Found broken hash functions ***Constants: ["MD5", "SHA-1", "MD5", "SHA-1", "SHA-1", "SHA-1", "SHA-1", "MD5"]
+[UnitContainer{unit=$fakeLocal_1[0] = "MD5", method='<com.facebook.appevents.AppEvent: java.lang.String md5Checksum(java.lang.String)>'}, UnitContainer{unit=$fakeLocal_1[0] = "SHA-1", method='<com.facebook.internal.Utility: java.lang.String sha1hash(java.lang.String)>'}, UnitContainer{unit=$fakeLocal_1[0] = "MD5", method='<com.facebook.internal.Utility: java.lang.String md5hash(java.lang.String)>'}, UnitContainer{unit=$fakeLocal_7[0] = "SHA-1", method='<com.adobe.mobile.StaticMethods: java.lang.String d(java.lang.String)>'}, UnitContainer{unit=$fakeLocal_2[0] = "SHA-1", method='<com.facebook.internal.Utility: java.lang.String sha1hash(byte[])>'}, UnitContainer{unit=$fakeLocal_2[0] = "SHA-1", method='<com.facebook.stetho.websocket.WebSocketHandler: java.lang.String generateServerKey(java.lang.String)>'}, UnitContainer{unit=$fakeLocal_7[0] = "SHA-1", method='<com.facebook.FacebookSdk: java.lang.String getApplicationSignature(android.content.Context)>'}, UnitContainer{unit=$fakeLocal_2[0] = "MD5", method='<com.adobe.mobile.RemoteDownload: java.lang.String i(java.lang.String)>'}]
+=======================================
