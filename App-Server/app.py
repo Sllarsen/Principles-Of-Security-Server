@@ -51,6 +51,12 @@ def parse_data(str):
 
 @app.route('/')
 @app.route(baseurl + '/', methods=['GET'])
+def hello():
+    return "hello world"
+
+
+@app.route('/a')
+@app.route(baseurl + '/a', methods=['GET'])
 def home():
     j = json.loads(request.data)["nameValuePairs"]
     apk_names = []
