@@ -24,7 +24,7 @@ def file_get_contents(filename):
 def parse_data(str):
     if "***Violated Rule" not in str:
         #no rules were violated
-        return ""
+        return "No vulnerabilities found"
     arr = str.split("***Violated Rule ")
     r = []
     #get the rules as numbers
@@ -56,8 +56,6 @@ def parse_data(str):
         if count + 1 < len(rules):
             ret_val += ", "
         count += 1
-    if ret_val == "":
-        ret_val = "No vulnerabilities found"
     return ret_val
 
 
