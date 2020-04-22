@@ -1,1 +1,0 @@
-b'Analyzing APK: ../apks/HokieMobile_v2.2.0.apk\n*** Base package: edu.vt.es.ips.hokiemobile\n'
