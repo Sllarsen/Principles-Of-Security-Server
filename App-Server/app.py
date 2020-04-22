@@ -56,6 +56,8 @@ def parse_data(str):
         if count + 1 < len(rules):
             ret_val += ", "
         count += 1
+    if ret_val == "":
+        ret_val = "No vulnerabilities found"
     return ret_val
 
 
