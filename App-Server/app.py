@@ -92,7 +92,6 @@ def home():
         analysis_results[i] = parse_data(str(file_get_contents(MY_PATH + "/" + i + ".txt")))
     #then run the analysis on the remaining cache_apps
     avail_apks = listdir(MY_PATH + "/../apks")
-    print(avail_apks)
     for i in run:
         apk_name = i + ".apk"
         if apk_name not in avail_apks:
@@ -100,7 +99,6 @@ def home():
             analysis_results[i] = "apk not supported"
             continue
         args = "java -jar ../cryptoguard-ccs-submission/main/build/libs/main.jar \"apk\" \"../apks/" + i + ".apk\" \"\" 1"
-        print(args)
         proc = subprocess.Popen(args, stdout = subprocess.PIPE, shell = True)
         stdout, stderr = proc.communicate();
         status = proc.wait()
