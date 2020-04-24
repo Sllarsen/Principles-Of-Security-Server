@@ -28,8 +28,8 @@ def parse_data(str):
     arr = str.split("***Violated Rule ")
     r = []
     #get the rules as numbers
-    for i in range(1, len(arr)):
-        r.append(int(arr[i].split(":")[0].strip()))
+    for i in range (1, len(arr)):
+        r.append(arr[i].split(":")[0].strip())
     #remove the duplicates
     rules = []
     for i in r:
@@ -38,20 +38,32 @@ def parse_data(str):
     ret_val = ""
     count = 0
     for i in rules:
-        if i == 2:
+        if i == "1":
+            ret_val += "Found broken crypto schemes"
+        elif i == "2":
             ret_val += "Found Broken Hash Function"
-        elif i == 4:
+        elif i == "3":
+            ret_val += "Used constant keys in code"
+        elif i == "4":
             ret_val += "Uses Untrusted TrustManager"
-        elif i == 5:
+        elif i == "5":
             ret_val += "Used default key size in method"
-        elif i == 6:
+        elif i == "6":
             ret_val += "Uses untrusted HostNameVerifier"
-        elif i == 12:
+        elif i == "8a":
+            ret_val += "Used 1000 iterations for PBE"
+        elif i == "9":
+            ret_val += "Found constant salts in code"
+        elif i == "11":
+            ret_val += "Found predictable seeds in code"
+        elif i == "12":
             ret_val += "Does not manually verify the hostname"
-        elif i == 13:
+        elif i == "13":
             ret_val +="Untrusted PRNG"
+        elif i == "14":
+            ret_val +="Used Predictable KeyStore Password"
         else:
-            ret_val += "Vulnerability (not decoded, " + str(i) + ")"
+            ret_val += "Vulnerability (not decoded, " + i + ")"
 
         if count + 1 < len(rules):
             ret_val += ", "
@@ -100,14 +112,14 @@ def home():
         proc = subprocess.Popen(args, stdout = subprocess.PIPE, shell = True)
         stdout, stderr = proc.communicate();
         status = proc.wait()
+        f = open("../cache/" + i + ".txt", "w")
+        f.write(str(stdout))
+        f.close()
         analysis_results[i] = parse_data(str(stdout))
         if status != 0:
             print("there was an error running the analysis on: ", i)
             continue
         #write the analysis to the cache folder
-        f = open("../cache/" + i + ".txt", "w")
-        f.write(str(stdout))
-        f.close()
         print(i, " (analysis run)")
     analysis_results = json.dumps(analysis_results)
     return analysis_results
