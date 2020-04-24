@@ -54,6 +54,8 @@ def parse_data(str):
             ret_val += "Used 1000 iterations for PBE"
         elif i == "9":
             ret_val += "Found constant salts in code"
+        elif i == "11":
+            ret_val += "Found predictable seeds in code"
         elif i == "12":
             ret_val += "Does not manually verify the hostname"
         elif i == "13":
